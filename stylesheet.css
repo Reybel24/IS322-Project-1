@@ -79,3 +79,32 @@ p {
 .active {
     display: block;
 }
+
+footer {
+    background-color: darksalmon;
+    width: 100%;
+    display: flex;
+}
+
+footer p {
+    margin: auto;
+}
+
+@media only screen and (max-width: 1199px) {
+    footer {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 750px) and (max-width: 1000px) {
+    footer {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (max-width: 749px) {
+    footer {
+        flex-direction: column;
+        margin: 10px;
+    }
+}
