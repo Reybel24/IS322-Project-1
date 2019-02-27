@@ -66,6 +66,15 @@ p {
     animation-duration: 3s;
 }
 
+#productsContainer {
+    width:100%;
+}
+.product {
+    width:200px;
+    height: 500px;
+    background-color: beige;
+}
+
 @-webkit-keyframes fade {
     from {opacity: .7}
     to {opacity: 1}
