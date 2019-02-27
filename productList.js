@@ -1,52 +1,47 @@
-var foo = 'foo'; // Variables declared outside of any function are considered global variables.
-                 // These variables can be found on the window object.
 (function () {
-    // Any kind of function, will create a new variable scope. Variables declared in this
-    // function will only be accesible inside this function, unless passed by reference through
-    // a function call.
 
-    // Lower level scope will always overwrite a higher level scope.
-    var foo = 'bar';
-    console.log(foo); // 'bar'
-    // Global Variables can still be accessed through window object
-    console.log(window.foo); // 'foo'
-
-    // An array of Objects, similar to database records we will eventually be dealing with.
+    // "Database" of candies (but really just an array)
     var mockDatabase = [
-        { _id: '123', name: 'Article 1', published: true },
-        { _id: '583', name: 'Article 2', published: true },
-        { _id: '954', name: 'Article 3', published: false },
-        { _id: '384', name: 'Article 4', published: false },
-        { _id: '183', name: 'Article 5', published: true },
-        { _id: '007', name: 'Article 6', published: false },
-        { _id: '304', name: 'Article 7', published: true },
-        { _id: '729', name: 'Article 8', published: false },
-        { _id: '734', name: 'Article 9', published: true },
+        { _id: 'skittles_original', name: 'Skittles', price: '$5.00', description: 'These are skittles.', brand: 'skittles' },
+        { _id: 'starbursts_original', name: 'Starbursts', price: '$10.00', description: 'These are starbursts.', brand: 'starbursts'  },
+        { _id: 'smarties', name: 'Smarties', price: '$9.99', description: 'These are smarties.'  },
+        { _id: 'hersheys_original', name: 'Hersheys', price: '$114.99', description: 'These are hersheys.'  },
+        { _id: 'kitkat_original', name: 'Kitkat', price: '$114.99', description: 'These are hersheys.'  },
+        { _id: 'twizzlers_original', name: 'Twizzlers', price: '$1.99', description: 'These are twizzlers.' },
+        { _id: 'starbursts_original', name: 'Starbursts', price: '$10.00', description: 'These are starbursts.', brand: 'starbursts'  },
+        { _id: 'smarties', name: 'Smarties', price: '$9.99', description: 'These are smarties.'  },
+        { _id: 'hersheys_original', name: 'Hersheys', price: '$114.99', description: 'These are hersheys.', brand: 'starbursts'  },
+        { _id: 'hersheys_original', name: 'Hersheys', price: '$114.99', description: 'These are hersheys.'  },
     ];
 
+    // This function renders the products individually on the page given
+    // a list of results
     function renderList (results) {
-        var tableBody = document.querySelector('#results-table tbody');
+        var productsContainer = document.querySelector('#productsContainer');
 
         // clear out inner HTML to get rid of any older results
-        tableBody.innerHTML = '';
-        // Map each database record to a string containing the HTML for it's row
-        var tableRows = results.map(function (result, index) {
-            return '<tr><td>' + index + '</td><td>' + result.name + '</td><td>' +
-                result._id + '</td><td>' + result.published + '</td></tr>';
-        });
-        // Set the contents of the table body to the new set of rendered HTML rows
-        tableRows.forEach(function (row) {
-            tableBody.innerHTML += row; // += adds to HTML instead of overwriting it entirely.
+        productsContainer.innerHTML = '';
+
+        // Map each item to its own item on the page
+        var products = results.map(function (result) {
+            return '<div class="product">'
+                + '<div class="product_top">' + result.name + '</div><div class="product_middle"</div>' // Name
+                + '<img src="images/' + result._id + '.jpg" class="product_image"/></div>' // Image
+                + '<div class="product_price">' + result.price + '</div>' // Price
+                + '<div class="product_top">' + result.description + '</div>' // Name
+                + '</div>'
         });
 
-        // Lower level scope once again overwrites what's above it.
-        var foo = 'renderList';
-        console.log(foo); // 'renderList'
+        // Add all of these created HTML elements to the page inside the
+        // productsContainer div
+        products.forEach(function (item) {
+            productsContainer.innerHTML += item; // += adds to HTML instead of overwriting it entirely.
+        });
     }
 
     renderList(mockDatabase);
 
-    // Function to Order results list
+    // This will order results list
     function orderBy(sortValue) {
         // Sort method varies based on what type of value we're sorting
         var sortedResults = (sortValue === 'name') ?
@@ -61,38 +56,34 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
                     return 1;
                 }
             }) :
-            mockDatabase.sort(function (a, b) { // Numbers a booleans are much simpler.
+            mockDatabase.sort(function (a, b) { // Numbers a booleans are much simpler.0
                 // Just need postive or negative number
                 // Object properties can be accessed through a string representing their name
                 return a[sortValue] - b[sortValue];
             });
         renderList(sortedResults);
     }
+
     // Change events trigger after the value of a form input changes
     document.querySelector('#orderBy').addEventListener('change', function(event){
-        // Event is the JavaScript event that transpired, in our change a CHANGE event.
-        // Target is the element it was performed on, useful for when the event targets
-        // multiple elements.
-        // Value has the name implies is the current value of the input element, if there is one
+        // When something within that input element changes, re-orderA
         orderBy(event.target.value);
     });
 
-    // Function to filter out unpublished results
-    function togglePublished(showPublished) {
-        // If showPublished is TRUE, only display published results
-        // Filter will only inclue objects that return TRUE from it's query
+
+    // This function filters the candies by brand
+    function filterByBrand(brand) {
         var filteredResults = mockDatabase.filter(function (result) {
-            // If showPublished is TRUE, always show.
-            // Otherweise only show if published is TRUE
-            return showPublished || result.published;
+            // If this candy matches the brand, return TRUE
+            console.log(result.brand + " and " + brand);
+            return (result.brand == brand);
         });
         renderList(filteredResults);
     }
-    // Change events trigger after the value of a form input changes
-    document.querySelector('#published').addEventListener('change', function(event){
-        // in this case value is a string that we need to convert to a boolean
-        var value = event.target.value === 'true';
-        togglePublished(value);
+    // Value of the input has changed, re-run the filter function
+    document.querySelector('#filterByBrand').addEventListener('change', function(event){
+        var brand = event.target.value;
+        filterByBrand(brand);
     });
 
 
