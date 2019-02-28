@@ -25,7 +25,7 @@
         // Map each item to its own item on the page
         var products = results.map(function (result) {
             return '<div class="product" data-CandyID="' + result._id + '"><a href="product.html">'
-                + '<div class="product_top">' + result.name + '</div><div class="product_middle"</div>' // Name
+                + '<div class="product_top">' + result.name + '</div><div class="product_middle">' // Name
                 + '<img src="images/' + result._id + '.jpg" class="product_image"/></div>' // Image
                 + '<div class="product_price">' + result.price + '</div>' // Price
                 + '<div class="product_top">' + result.description + '</div>' // Name
@@ -91,13 +91,16 @@
         localStorage.setItem("selectedProduct", product);
     }
 
-    document.querySelector('.product').addEventListener('click', function(event) {
-        // When something within that input element changes, re-orderA
-        //setSelectedProduct(event.);
-        console.log("test A");
-        localStorage.setItem("selectedProduct", this.getAttribute("data-CandyID"));
-    });
 
+    productItems = document.querySelectorAll('.product');
+
+    for (var i=0; i < productItems.length; i++)
+    {
+        productItems[i].addEventListener('click', function(event) {
+            var _product = this.getAttribute("data-CandyID");
+            localStorage.setItem("selectedProduct", _product);
+        });
+    }
 
 })(); // Wrap entire file in self executing function.
       // Keeping all variables declared in this file inside a local scope.
