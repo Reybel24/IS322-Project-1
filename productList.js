@@ -2,17 +2,24 @@
 
     // "Database" of candies (but really just an array)
     var mockDatabase = [
-        { _id: 'skittles_original', name: 'Skittles', price: '$5.00', description: 'These are skittles.', brand: 'skittles' },
-        { _id: 'starbursts_original', name: 'Starbursts', price: '$10.00', description: 'These are starbursts.', brand: 'starbursts'  },
-        { _id: 'smarties', name: 'Smarties', price: '$9.99', description: 'These are smarties.'  },
-        { _id: 'hersheys_original', name: 'Hersheys', price: '$114.99', description: 'These are hersheys.'  },
-        { _id: 'kitkat_original', name: 'Kitkat', price: '$114.99', description: 'These are hersheys.'  },
-        { _id: 'twizzlers_original', name: 'Twizzlers', price: '$1.99', description: 'These are twizzlers.' },
-        { _id: 'starbursts_original', name: 'Starbursts', price: '$10.00', description: 'These are starbursts.', brand: 'starbursts'  },
-        { _id: 'smarties', name: 'Smarties', price: '$9.99', description: 'These are smarties.'  },
-        { _id: 'hersheys_original', name: 'Hersheys', price: '$114.99', description: 'These are hersheys.', brand: 'starbursts'  },
-        { _id: 'hersheys_original', name: 'Hersheys', price: '$114.99', description: 'These are hersheys.'  },
+        { _id: 'skittles_original', name: 'Skittles', price: '$5.00', description: 'These are skittles.', brand: 'Wrigley Company' },
+        { _id: 'starbursts_original', name: 'Starbursts', price: '$10.00', description: 'These are starbursts.', brand: 'Wrigley Company'  },
+        { _id: 'smarties', name: 'Smarties', price: '$9.99', description: 'These are smarties.', brand: 'Smarties Candy Company'  },
+        { _id: 'hersheys_original', name: 'Hersheys', price: '$14.99', description: 'These are hersheys.', brand: 'The Hershey Company'  },
+        { _id: 'kitkat_original', name: 'Kitkat', price: '$10.99', description: 'These are hersheys.', brand: 'Nestlé'  },
+        { _id: 'twizzlers_original', name: 'Twizzlers', price: '$1.99', description: 'These are twizzlers.', brand: 'The Hershey Company' },
+        { _id: 'mentos', name: 'Mentos', price: '$10.00', description: 'These are starbursts.', brand: 'Other',  },
+        { _id: 'airheads', name: 'AirHeads Xtremes Bites', price: '$14.99', description: 'These are hersheys.', brand: 'Other'  },
+        { _id: 'york_peppermint', name: 'York Peppermint Patties', price: '$8.99', description: 'These are hersheys.',brand: 'The Hershey Company'  },
+        { _id: 'reeses_pieces', name: 'Resses Pieces', price: '$11.99', description: 'These are hersheys.', brand: 'The Hershey Company'  },
+        { _id: 'milky_way', name: 'Milky Way', price: '$14.99', description: 'These are hersheys.', brand: 'Mars'  },
+        { _id: 'twix', name: 'Twix', price: '$16.99', description: 'These are hersheys.', brand: 'Mars' },
+        { _id: 'sour_patch_kids', name: 'Sour Patch Kids', price: '$11.99', description: 'These are hersheys.', brand: 'Mars'  },
+        { _id: 'now_and_later', name: 'Now and Later Extreme Sour', price: '$4.99', description: 'These are hersheys.', brand: 'Other'  },
+        { _id: 'trolli', name: 'Trolli Sour Brite Crawlers', price: '$9.99', description: 'These are hersheys.', brand: 'Other'  },
+        { _id: 'starlight_mints', name: 'Starlight Mints', price: '$5.99', description: 'These are hersheys.', brand: 'Other'  },
     ];
+
 
     // This function renders the products individually on the page given
     // a list of results
