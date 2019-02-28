@@ -1,11 +1,14 @@
-var product = localStorage.getItem('selectedProduct');
+// Grab the candy data object
+var productID = localStorage.getItem('selectedProductID');
+var productName = localStorage.getItem('selectedProductName');
+var productDescription = localStorage.getItem('selectedProductDescription');
 
 var title = document.querySelector('#product_title');
-title.innerHTML = product;
+title.innerHTML = productName;
 
-var image = localStorage.getItem('#product_image');
-image.innerHTML = "Hello 2";
+var image = document.querySelector('#product_image');
+image.getAttribute("src").innerHTML = "images/" + productID;
 
 
-var desciption = document.querySelector('#product_description');
-desciption.innerHTML = "Hello 3";
+var description = document.querySelector('#product_description');
+description.innerHTML = productDescription;
