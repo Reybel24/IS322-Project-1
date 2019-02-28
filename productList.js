@@ -24,12 +24,12 @@
 
         // Map each item to its own item on the page
         var products = results.map(function (result) {
-            return '<div class="product">'
+            return '<div class="product" data-CandyID="' + result._id + '"><a href="product.html">'
                 + '<div class="product_top">' + result.name + '</div><div class="product_middle"</div>' // Name
                 + '<img src="images/' + result._id + '.jpg" class="product_image"/></div>' // Image
                 + '<div class="product_price">' + result.price + '</div>' // Price
                 + '<div class="product_top">' + result.description + '</div>' // Name
-                + '</div>'
+                + '</a></div>'
         });
 
         // Add all of these created HTML elements to the page inside the
@@ -86,6 +86,17 @@
         filterByBrand(brand);
     });
 
+    function setSelectedProduct(product)
+    {
+        localStorage.setItem("selectedProduct", product);
+    }
+
+    document.querySelector('.product').addEventListener('click', function(event) {
+        // When something within that input element changes, re-orderA
+        //setSelectedProduct(event.);
+        console.log("test A");
+        localStorage.setItem("selectedProduct", this.getAttribute("data-CandyID"));
+    });
 
 
 })(); // Wrap entire file in self executing function.
