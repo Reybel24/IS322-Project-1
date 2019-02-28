@@ -105,6 +105,7 @@
     {
         productItems[i].addEventListener('click', function(event) {
             var _product = this.getAttribute("data-CandyID");
+			var _productObject = mockDatabase.find(x => x._id === _product)
             localStorage.setItem("selectedProduct", _product);
         });
     }
