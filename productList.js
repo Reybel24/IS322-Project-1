@@ -37,7 +37,7 @@
             return '<div class="product" data-CandyID="' + result._id + '"><a href="product.html">'
                 + '<div class="product_top">' + result.name + '</div><div class="product_middle">' // Name
                 + '<img src="Images/' + result._id + '.jpg" class="product_image"/></div>' // Image
-                + '<div class="product_price">' + result.price + '</div>' // Price
+                + '<div class="product_price">$' + result.price + '</div>' // Price
                 + '<div class="product_top">' + result.description + '</div>' // Name
                 + '</a></div>'
         });
@@ -109,7 +109,8 @@
         text_filteringBy.innerHTML = "Filtering by price (" + priceRange + ")";
         var filteredResults = mockDatabase.filter(function (result) {
             // If this candy matches the brand, return TRUE
-            return (result.price <= priceRange);
+            console.log("Checking: Price is " + result.price + ", range is " + priceRange + " ITS: " + (result.price <= priceRange));
+            return (Number(result.price) < Number(priceRange));
         });
         renderList(filteredResults);
     }
