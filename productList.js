@@ -7,7 +7,7 @@
         { _id: 'smarties', name: 'Smarties', price: '9.99', description: 'These are smarties.', brand: 'Smarties Candy Company', year: '1949', flavor: 'sweet', nuts: 'no' },
         { _id: 'hersheys_original', name: 'Hersheys', price: '14.99', description: 'These are hersheys.', brand: 'The Hershey Company', year: '1935', flavor: 'sweet', nuts: 'yes' },
         { _id: 'kitkat_original', name: 'Kitkat', price: '10.99', description: 'These are hersheys.', brand: 'Nestle', year: '1935', flavor: 'sweet', nuts: 'yes' },
-        { _id: 'hersheys_cookiesncream', name: 'Hersheys Cookies N Cream', price: '10.99', description: 'These are hersheys.', brand: 'Nestlé', year: '1935', flavor: 'sweet', nuts: 'yes' },
+        { _id: 'hersheys_cookiesncream', name: 'Hersheys Cookies N Cream', price: '10.99', description: 'These are hersheys.', brand: 'Nestle', year: '1935', flavor: 'sweet', nuts: 'yes' },
         { _id: 'twizzlers_original', name: 'Twizzlers', price: '1.99', description: 'These are twizzlers.', brand: 'The Hershey Company', year: '1845', flavor: 'sweet', nuts: 'no' },
         { _id: 'mentos_mint', name: 'Mentos', price: '10.00', description: 'These are starbursts.', brand: 'Other', year: '1932', flavor: 'mint', nuts: 'no' },
         { _id: 'airheads', name: 'AirHeads Xtremes Bites', price: '14.99', description: 'These are hersheys.', brand: 'Other', year: '1985', flavor: 'sweet', nuts: 'no' },
