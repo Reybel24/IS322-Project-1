@@ -11,28 +11,66 @@
 </head>
 
 <body>
+    <div id="content">
     <div class="nav-bar">
         <a href="index.html" class="active"> Home </a>
         <a href="productList.html"> Products </a>
     </div>
 
-    <div class="form-group" style="margin-right: 20px;">
-        <label for="orderBy">Order By</label>
-        <select id="orderBy" name="orderBy">
-            <option value="name">Name</option>
-            <option value="published">Year Created</option>
-        </select>
-    </div>
-
-    <div class="form-group" style="margin-right: 20px;">
-        <label for="orderBy">Filter Brand</label>
-        <select id="filterByBrand" name="filterByBrand">
-            <option value="skittles">Skittles</option>
-            <option value="starbursts">Starbursts</option>
-        </select>
-    </div>
-
     <h1 class="title"> BEST CANDY STORE </h1>
+    <div id="top-message">Not currently sorting/filtering by anything</div>
+
+    <div class="filtersGroup">
+        <div class="filterItem">
+            <label for="orderBy">Order By</label>
+            <select id="orderBy" name="orderBy">
+                <option value="name">Name</option>
+                <option value="price">Price</option>
+                <option value="year">Year Created</option>
+        </select>
+        </div>
+
+        <div class="filterItem">
+            <label for="orderBy">Filter Brand</label>
+            <select id="filterByBrand" name="filterByBrand">
+                <option value="Nestle">Nestle</option>
+                <option value="Mars">Mars</option>
+                <option value="The Hershey Company">The Hershey Company</option>
+                <option value="Wrigley Company">Wringly Company</option>
+                <option value="Smarties Candy Company">Smarties Candy Company</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="filterItem">
+            <label for="orderBy">Price Range</label>
+            <select id="filterByPrice" name="filterByPrice">
+                <option value="5">Less than $5</option>
+                <option value="10">Less than $10</option>
+                <option value="15">Less than $15</option>
+                <option value="20">Less than $20</option>
+            </select>
+        </div>
+
+        <div class="filterItem">
+            <label for="orderBy">Filter Flavor</label>
+            <select id="filterByFlavor" name="filterByFlavor">
+                <option value="sweet">Sweet</option>
+                <option value="sour">Sour</option>
+                <option value="mint">Mint</option>
+            </select>
+        </div>
+
+        <div class="filterItem">
+            <label for="orderBy">Contains Nuts</label>
+            <select id="filterByContainsNuts" name="filterByContainsNuts">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+    </div>
+
 
     <div id="productsContainer">
     </div>
@@ -43,6 +81,7 @@
         <p>323 Dr Martin Luther King Jr Blvd, <br>
         Newark, NJ 07102</p>
     </footer>
+    </div>
 
     <script type="text/javascript" src="productList.js"></script>
 </body>

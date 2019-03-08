@@ -11,40 +11,40 @@
 </head>
 
 <body>
-<div class="nav-bar">
-    <a href="index.html" class="active"> Home </a>
-    <a href="productList.html"> Products </a>
-</div>
+    <div id="content">
+        <div class="nav-bar">
+            <a href="index.html" class="active"> Home </a>
+         <a href="productList.html"> Products </a>
+        </div>
 
-<div class="form-group" style="margin-right: 20px;">
-    <label for="orderBy">Order By</label>
-    <select id="orderBy" name="orderBy">
-        <option value="name">Name</option>
-        <option value="published">Year Created</option>
-    </select>
-</div>
+        <h1 class="title"> BEST CANDY STORE </h1>
 
-<div class="form-group" style="margin-right: 20px;">
-    <label for="orderBy">Filter Brand</label>
-    <select id="filterByBrand" name="filterByBrand">
-        <option value="skittles">Skittles</option>
-        <option value="starbursts">Starbursts</option>
-    </select>
-</div>
+        <div id="productBig">
+            <div id= "productBig_title"></div>
 
-<h1 class="title"> BEST CANDY STORE </h1>
+            <img id="productBig_image"></img>
 
-<div id= "product_title"></div>
-<div id= "product_image"></div>
-<div id= "product_description"></div>
+            <div class="wrapper_mini">
+                <h4>Product Details</h4>
+                <div id= "productBig_details"></div>
+            </div>
 
-<footer>
-    <p>Best Candy Store</p>
-    <p>888-888-8888</p>
-    <p>323 Dr Martin Luther King Jr Blvd, <br>
-        Newark, NJ 07102</p>
-</footer>
 
-<script type="text/javascript" src="product.js"></script>
+            <div class="wrapper_mini">
+                <div id="productBig_description"></div>
+            </div>
+        </div>
+
+        <div id="addToCartButton">Add To Cart</div>
+
+        <footer>
+            <p>Best Candy Store</p>
+            <p>888-888-8888</p>
+            <p>323 Dr Martin Luther King Jr Blvd, <br>
+            Newark, NJ 07102</p>
+        </footer>
+
+        <script type="text/javascript" src="product.js"></script>
+    </div>
 </body>
 </html>
