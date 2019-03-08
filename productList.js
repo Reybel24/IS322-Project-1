@@ -36,7 +36,7 @@
         var products = results.map(function (result) {
             return '<div class="product" data-CandyID="' + result._id + '"><a href="product.html">'
                 + '<div class="product_top">' + result.name + '</div><div class="product_middle">' // Name
-                + '<img src="images/' + result._id + '.jpg" class="product_image"/></div>' // Image
+                + '<img src="Images/' + result._id + '.jpg" class="product_image"/></div>' // Image
                 + '<div class="product_price">' + result.price + '</div>' // Price
                 + '<div class="product_top">' + result.description + '</div>' // Name
                 + '</a></div>'
@@ -47,6 +47,8 @@
         products.forEach(function (item) {
             productsContainer.innerHTML += item; // += adds to HTML instead of overwriting it entirely.
         });
+
+        AddClickEvents();
     }
 
     renderList(mockDatabase);
@@ -158,17 +160,22 @@
         localStorage.setItem('selectedProductID', _productObject._id);
         localStorage.setItem('selectedProductName', _productObject.name);
         localStorage.setItem('selectedProductDescription', _productObject.description);
+        localStorage.setItem('selectedProductPrice', _productObject.price);
+        localStorage.setItem('selectedProductBrand', _productObject.brand);
+        localStorage.setItem('selectedProductYear', _productObject.year);
     }
 
-
-    productItems = document.querySelectorAll('.product');
-    for (var i=0; i < productItems.length; i++)
-    {
-        productItems[i].addEventListener('click', function(event) {
-            var _product = this.getAttribute("data-CandyID");
-            setSelectedProduct(_product);
-        });
+    function AddClickEvents() {
+        productItems = document.querySelectorAll('.product');
+        for (var i=0; i < productItems.length; i++)
+        {
+            productItems[i].addEventListener('click', function(event) {
+                var _product = this.getAttribute("data-CandyID");
+                setSelectedProduct(_product);
+            });
+        }
     }
+
 
 })(); // Wrap entire file in self executing function.
       // Keeping all variables declared in this file inside a local scope.

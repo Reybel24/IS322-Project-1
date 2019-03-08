@@ -2,12 +2,18 @@
 var productID = localStorage.getItem('selectedProductID');
 var productName = localStorage.getItem('selectedProductName');
 var productDescription = localStorage.getItem('selectedProductDescription');
+var productPrice = localStorage.getItem('selectedProductPrice');
+var productBrand = localStorage.getItem('selectedProductDBrand');
+var productYear = localStorage.getItem('selectedProductYear');
 
-var title = document.querySelector('#product_title');
+var title = document.querySelector('#productBig_title');
 title.innerHTML = productName;
 
-var description = document.querySelector('#product_description');
+var details = document.querySelector('#productBig_details');
+details.innerHTML = "Brand: " + productName + "<br>Year: " + productYear;
+
+var description = document.querySelector('#productBig_description');
 description.innerHTML = productDescription;
 
-var image = document.querySelector('#product_image');
-image.setAttribute("src", "images/" + productID);
+var image = document.querySelector('#productBig_image');
+image.src = 'Images/' + productID + '.jpg';
