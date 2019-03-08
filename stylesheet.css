@@ -245,8 +245,13 @@ footer p {
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
+  body {
+        margin: auto;
+    }
+
     #content {
-        width: 400px;
+        width: 300px;
+        margin: auto;
     }
 
     .filtersGroup {
@@ -255,11 +260,13 @@ footer p {
     }
 
     .product {
-        width:360px;
+        width:250px;
     }
+
     .product_image {
-        width:75%;
+        width:65%;
     }
+
     #productBig_description {
         width:100%;
     }
