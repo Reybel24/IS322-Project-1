@@ -93,20 +93,21 @@
         filterByBrand(brand);
     });
 
-    function setSelectedProduct(product)
+    function setSelectedProduct(productID)
     {
-        localStorage.setItem("selectedProduct", product);
+        var _productObject = mockDatabase.find(x => x._id == productID)
+        localStorage.setItem('selectedProductID', _productObject._id);
+        localStorage.setItem('selectedProductName', _productObject.name);
+        localStorage.setItem('selectedProductDescription', _productObject.description);
     }
 
 
     productItems = document.querySelectorAll('.product');
-
     for (var i=0; i < productItems.length; i++)
     {
         productItems[i].addEventListener('click', function(event) {
             var _product = this.getAttribute("data-CandyID");
-			var _productObject = mockDatabase.find(x => x._id === _product)
-            localStorage.setItem("selectedProduct", _product);
+            setSelectedProduct(_product);
         });
     }
 
