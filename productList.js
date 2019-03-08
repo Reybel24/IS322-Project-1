@@ -2,7 +2,7 @@
 
     // "Database" of candies (but really just an array)
     var mockDatabase = [
-        { _id: 'skittles_original', name: 'Skittles', price: '5.00', description: 'These are skittles.', brand: 'Wrigley Company', year: '1974', flavor: 'sweet', nuts: 'no' },
+        { _id: 'skittles_original', name: 'Skittles', price: '5.00', description: 'These are skittles.', brand: 'Wrigley Company', year: '1974', flavor: 'sweet', nuts: 'no', descriptionLong: "<h2>Skittles</h2><p>Skittles consist of hard sugar shells imprinted with the letter <b>\"S\"</b>. The interior consists mainly of sugar, corn syrup, and hydrogenated palm kernel oil along with fruit juice, citric acid, natural and artificial flavors.[2] The confectionery has been sold in a variety of flavor collections, such as Tropical, Wild Berry, Dessert, sweet heat and Sour. </p>" },
         { _id: 'starbursts_original', name: 'Starbursts', price: '10.00', description: 'These are starbursts.', brand: 'Wrigley Company', year: '1960', flavor: 'sweet', nuts: 'no' },
         { _id: 'smarties', name: 'Smarties', price: '9.99', description: 'These are smarties.', brand: 'Smarties Candy Company', year: '1949', flavor: 'sweet', nuts: 'no' },
         { _id: 'hersheys_original', name: 'Hersheys', price: '14.99', description: 'These are hersheys.', brand: 'The Hershey Company', year: '1935', flavor: 'sweet', nuts: 'yes' },
@@ -109,7 +109,6 @@
         text_filteringBy.innerHTML = "Filtering by price (" + priceRange + ")";
         var filteredResults = mockDatabase.filter(function (result) {
             // If this candy matches the brand, return TRUE
-            console.log("Checking: Price is " + result.price + ", range is " + priceRange + " ITS: " + (result.price <= priceRange));
             return (Number(result.price) < Number(priceRange));
         });
         renderList(filteredResults);
@@ -160,7 +159,7 @@
         var _productObject = mockDatabase.find(x => x._id == productID)
         localStorage.setItem('selectedProductID', _productObject._id);
         localStorage.setItem('selectedProductName', _productObject.name);
-        localStorage.setItem('selectedProductDescription', _productObject.description);
+        localStorage.setItem('selectedProductDescriptionLong', _productObject.descriptionLong);
         localStorage.setItem('selectedProductPrice', _productObject.price);
         localStorage.setItem('selectedProductBrand', _productObject.brand);
         localStorage.setItem('selectedProductYear', _productObject.year);
