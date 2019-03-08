@@ -2,22 +2,23 @@
 
     // "Database" of candies (but really just an array)
     var mockDatabase = [
-        { _id: 'skittles_original', name: 'Skittles', price: '$5.00', description: 'These are skittles.', brand: 'Wrigley Company' },
-        { _id: 'starbursts_original', name: 'Starbursts', price: '$10.00', description: 'These are starbursts.', brand: 'Wrigley Company'  },
-        { _id: 'smarties', name: 'Smarties', price: '$9.99', description: 'These are smarties.', brand: 'Smarties Candy Company'  },
-        { _id: 'hersheys_original', name: 'Hersheys', price: '$14.99', description: 'These are hersheys.', brand: 'The Hershey Company'  },
-        { _id: 'kitkat_original', name: 'Kitkat', price: '$10.99', description: 'These are hersheys.', brand: 'Nestlé'  },
-        { _id: 'twizzlers_original', name: 'Twizzlers', price: '$1.99', description: 'These are twizzlers.', brand: 'The Hershey Company' },
-        { _id: 'mentos', name: 'Mentos', price: '$10.00', description: 'These are starbursts.', brand: 'Other',  },
-        { _id: 'airheads', name: 'AirHeads Xtremes Bites', price: '$14.99', description: 'These are hersheys.', brand: 'Other'  },
-        { _id: 'york_peppermint', name: 'York Peppermint Patties', price: '$8.99', description: 'These are hersheys.',brand: 'The Hershey Company'  },
-        { _id: 'reeses_pieces', name: 'Resses Pieces', price: '$11.99', description: 'These are hersheys.', brand: 'The Hershey Company'  },
-        { _id: 'milky_way', name: 'Milky Way', price: '$14.99', description: 'These are hersheys.', brand: 'Mars'  },
-        { _id: 'twix', name: 'Twix', price: '$16.99', description: 'These are hersheys.', brand: 'Mars' },
-        { _id: 'sour_patch_kids', name: 'Sour Patch Kids', price: '$11.99', description: 'These are hersheys.', brand: 'Mars'  },
-        { _id: 'now_and_later', name: 'Now and Later Extreme Sour', price: '$4.99', description: 'These are hersheys.', brand: 'Other'  },
-        { _id: 'trolli', name: 'Trolli Sour Brite Crawlers', price: '$9.99', description: 'These are hersheys.', brand: 'Other'  },
-        { _id: 'starlight_mints', name: 'Starlight Mints', price: '$5.99', description: 'These are hersheys.', brand: 'Other'  },
+        { _id: 'skittles_original', name: 'Skittles', price: '5.00', description: 'These are skittles.', brand: 'Wrigley Company', year: '1974', flavor: 'sweet' },
+        { _id: 'starbursts_original', name: 'Starbursts', price: '10.00', description: 'These are starbursts.', brand: 'Wrigley Company', year: '1960', flavor: 'sweet' },
+        { _id: 'smarties', name: 'Smarties', price: '9.99', description: 'These are smarties.', brand: 'Smarties Candy Company', year: '1949', flavor: 'sweet' },
+        { _id: 'hersheys_original', name: 'Hersheys', price: '14.99', description: 'These are hersheys.', brand: 'The Hershey Company', year: '1935', flavor: 'sweet' },
+        { _id: 'kitkat_original', name: 'Kitkat', price: '10.99', description: 'These are hersheys.', brand: 'Nestlé', year: '1935', flavor: 'sweet' },
+        { _id: 'hersheys_cookiesncream', name: 'Hersheys Cookies N Cream', price: '10.99', description: 'These are hersheys.', brand: 'Nestlé', year: '1935', flavor: 'sweet' },
+        { _id: 'twizzlers_original', name: 'Twizzlers', price: '1.99', description: 'These are twizzlers.', brand: 'The Hershey Company', year: '1845', flavor: 'sweet' },
+        { _id: 'mentos_mint', name: 'Mentos', price: '10.00', description: 'These are starbursts.', brand: 'Other', year: '1932', flavor: 'mint' },
+        { _id: 'airheads', name: 'AirHeads Xtremes Bites', price: '14.99', description: 'These are hersheys.', brand: 'Other', year: '1985', flavor: 'sweet' },
+        { _id: 'york_peppermint', name: 'York Peppermint Patties', price: '8.99', description: 'These are hersheys.',brand: 'The Hershey Company', year: '1975', flavor: 'mint' },
+        { _id: 'reeses_pieces', name: 'Resses Pieces', price: '11.99', description: 'These are hersheys.', brand: 'The Hershey Company', year: '1978', flavor: 'sweet' },
+        { _id: 'milky_way', name: 'Milky Way', price: '14.99', description: 'These are hersheys.', brand: 'Mars', year: '1923', flavor: 'sweet' },
+        { _id: 'twix', name: 'Twix', price: '16.99', description: 'These are hersheys.', brand: 'Mars', year: '1979', flavor: 'sweet' },
+        { _id: 'sour_patch_kids', name: 'Sour Patch Kids', price: '11.99', description: 'These are hersheys.', brand: 'Mars', year: '1985', flavor: 'sour' },
+        { _id: 'now_and_later', name: 'Now and Later Extreme Sour', price: '4.99', description: 'These are hersheys.', brand: 'Other', year: '1962', flavor: 'sour' },
+        { _id: 'trolli', name: 'Trolli Sour Brite Crawlers', price: '9.99', description: 'These are hersheys.', brand: 'Other', year: '1981', flavor: 'sour' },
+        { _id: 'starlight_mints', name: 'Starlight Mints', price: '5.99', description: 'These are hersheys.', brand: 'Other', year: '2001', flavor: 'mint' },
     ];
 
 
@@ -50,9 +51,11 @@
 
     // This will order results list
     function orderBy(sortValue) {
+        console.log("SORTING: " + sortValue);
         // Sort method varies based on what type of value we're sorting
         var sortedResults = (sortValue === 'name') ?
-            mockDatabase.sort(function (a, b) { // Strings need to be sorted in a slightly more compldex way
+            mockDatabase.sort(function (a, b) { // Strings need to be sorted in a slightly more complex way
+                console.log("sorting by name...");
                 var nameA = a.name.toUpperCase(); // ignore upper and lowercase
                 var nameB = b.name.toUpperCase(); // ignore upper and lowercase
                 // Sorts alphabetically.  -1 puts it before. 1 puts it after
@@ -66,6 +69,7 @@
             mockDatabase.sort(function (a, b) { // Numbers a booleans are much simpler.0
                 // Just need postive or negative number
                 // Object properties can be accessed through a string representing their name
+                console.log("sorting by year...");
                 return a[sortValue] - b[sortValue];
             });
         renderList(sortedResults);
